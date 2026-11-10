@@ -7,14 +7,14 @@
 <style>
 body{background:#0f172a;color:white;font-family:Arial;text-align:center;padding:20px}
 h1{color:#38bdf8;font-size:32px}
-.box{background:white;color:black;border-radius:15px;padding:15px;max-width:500px;margin:auto}
-select,input{width:95%;padding:12px;margin:8px 0;border-radius:10px;border:1px solid #ccc;font-size:16px}
-button{background:#0284c7;color:white;padding:12px 25px;border:none;border-radius:10px;font-size:18px}
-#ans{margin-top:15px;text-align:left;background:#f1f5f9;padding:12px;border-radius:10px;min-height:80px}
+.box{background:white;color:black;border-radius:15px;padding:20px;max-width:500px;margin:auto}
+select,input{width:95%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;font-size:16px}
+button{background:#0284c7;color:white;padding:12px 20px;border:none;border-radius:8px;font-size:17px;width:100%}
+#ans{margin-top:15px;text-align:left;background:#f1f5f9;padding:12px;border-radius:8px;min-height:50px}
 </style>
 </head>
 <body>
-<h1>SKY AI 🌤️</h1>
+<h1>SKY AI ✨</h1>
 <p>By Zeeshan Ashraf Saqeeb | Ask in your language</p>
 <div class="box">
 <select id="lang">
@@ -22,20 +22,26 @@ button{background:#0284c7;color:white;padding:12px 25px;border:none;border-radiu
 <option value="Urdu">Urdu</option>
 <option value="Pashto">Pashto</option>
 <option value="Arabic">Arabic</option>
-<option value="Hindi">Hindi</option>
-<option value="Punjabi">Punjabi</option>
 </select>
-<input id="q" placeholder="Ask anything... Kuch bhi poocho...">
-<button onclick="ask()">Ask SKY AI</button>
-<div id="ans">Hello! Main SKY AI hoon. Apni zaban me sawal poocho.</div>
+<input id="q" placeholder="Ask anything... / Kuch bhi poochain...">
+<button onclick="ask()">Ask / Poochain</button>
+<div id="ans">Answer will appear here...</div>
 </div>
 <script>
 function ask(){
-let q=document.getElementById('q').value;
-let l=document.getElementById('lang').value;
-let a=document.getElementById('ans');
-if(!q){a.innerHTML="Pehle sawal likho!";return;}
-a.innerHTML="SKY AI ("+l+") soch raha hai...<br><br><b>Tumhara Sawal:</b> "+q+"<br><br><b>Jawab:</b> Zabardast sawal hai! Main SKY AI hoon, Zeeshan ne mujhe banaya hai. Main "+l+" me tumhari madad kar sakta hoon. Apna sawal dobara detail me poocho, main poori koshish karunga behtareen jawab doon.";
+let q=document.getElementById("q").value.toLowerCase();
+let lang=document.getElementById("lang").value;
+let ans=document.getElementById("ans");
+if(!q){ans.innerHTML="Please type a question first!";return;}
+if(q.includes("hello")||q.includes("salam")||q.includes("assalam")){
+ans.innerHTML="Hello! I am SKY AI. How can I help you? / Salam! Main SKY AI hoon.";
+}else if(q.includes("name")||q.includes("naam")){
+ans.innerHTML="My name is SKY AI, made by Zeeshan Ashraf Saqeeb.";
+}else if(q.includes("how are you")||q.includes("kaise")){
+ans.innerHTML="I am fine, thank you! Aap kaise hain?";
+}else{
+ans.innerHTML="In "+lang+": You asked - <b>"+q+"</b><br><br>This is SKY AI demo version. Full AI version coming soon! Aap ka sawal mil gaya hai.";
+}
 }
 </script>
 </body>
